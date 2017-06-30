@@ -4,7 +4,7 @@
   "description": "game of war",
   "main": "game.js",
   "scripts": {
-    "test": "test"
+    "test": "jasmine"
   },
   "repository": {
     "type": "git",
