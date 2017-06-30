@@ -4,6 +4,7 @@
   "description": "game of war",
   "main": "game.js",
   "scripts": {
+    "start": "node game.js",
     "test": "jasmine"
   },
   "repository": {
