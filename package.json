@@ -1,0 +1,22 @@
+{
+  "name": "war",
+  "version": "1.0.0",
+  "description": "game of war",
+  "main": "game.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelkirschbaum/war.git"
+  },
+  "author": "Michael Kirschbaum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelkirschbaum/war/issues"
+  },
+  "homepage": "https://github.com/michaelkirschbaum/war#readme",
+  "devDependencies": {
+    "jasmine": "^2.6.0"
+  }
+}
