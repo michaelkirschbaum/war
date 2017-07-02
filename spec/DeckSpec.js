@@ -7,7 +7,7 @@ describe("Deck", function() {
     deck = new Deck();
   });
 
-  it("should be a standard size deck", function() {
+  it("should be a standard deck", function() {
     expect(deck.getSize()).toEqual(64);
   });
 
@@ -21,18 +21,16 @@ describe("Deck", function() {
         deck.draw();
     });
 
-    it("should throw an exception when drawing", function() {
+    it("should throw an exception when drawing and create new deck", function() {
       expect(function() {
         deck.draw();
       }).toThrowError("the deck is empty");
-    });
 
-    it("create new deck after trying to draw", function() {
-
+      // except();
     });
   });
 
   it("should be able to shuffle", function() {
-
+    // expect();
   });
 });
