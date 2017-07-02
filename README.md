@@ -1,5 +1,6 @@
 # war
 
+TODO:
 * The game should be configurable to be played by 2 or more players.
 * The game should be executable to demo the implementation
 * Best practices should be followed
