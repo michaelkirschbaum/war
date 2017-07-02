@@ -12,6 +12,10 @@ describe("Deck", function() {
   });
 
   it("should be able to return a card", function() {
-    expect(typeof(deck.draw())).toBe("Card");
+    expect(typeof(deck.draw())).toEqual("Card");
   });
+
+  describe("when all cards have been dealt", function() {
+    
+  })
 });
