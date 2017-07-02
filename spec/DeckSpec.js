@@ -26,11 +26,11 @@ describe("Deck", function() {
         deck.draw();
       }).toThrowError("the deck is empty");
 
-      // except();
+      expect(deck.getSize().toEqual(64));
     });
   });
 
   it("should be able to shuffle", function() {
-    // expect();
+    expect(true).toEqual(false);
   });
 });
