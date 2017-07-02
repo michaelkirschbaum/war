@@ -26,5 +26,13 @@ describe("Deck", function() {
         deck.draw();
       }).toThrowError("the deck is empty");
     });
+
+    it("create new deck after trying to draw", function() {
+
+    });
+  });
+
+  it("should be able to shuffle", function() {
+
   });
 });
