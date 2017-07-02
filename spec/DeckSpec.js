@@ -16,6 +16,15 @@ describe("Deck", function() {
   });
 
   describe("when all cards have been dealt", function() {
-    
-  })
+    beforeEach(function() {
+      for (var i = 0; i < deck.getSize(); i++)
+        deck.draw();
+    });
+
+    it("should throw an exception when drawing", function() {
+      expect(function() {
+        deck.draw();
+      }).toThrowError("the deck is empty");
+    });
+  });
 });
