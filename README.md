@@ -1,5 +1,13 @@
 # war
 
+## test
+
+npm test
+
+## run
+
+npm start
+
 TODO:
 * The game should be configurable to be played by 2 or more players.
 * The game should be executable to demo the implementation
@@ -11,11 +19,3 @@ TODO:
 * Executable demo
 * Provide all source files for review
 * 2 or more players
-
-## test
-
-npm test
-
-## run
-
-npm start

@@ -22,6 +22,6 @@ describe("Game", function() {
   });
 
   it("should allow more than two players", function() {
-    // expect();
+    expect(true).toEqual(false);
   });
 });
