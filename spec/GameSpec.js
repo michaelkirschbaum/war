@@ -9,7 +9,9 @@ describe("Game", function() {
   });
 
   it("a deck should be evenly split among players", function() {
-    game.getPlayers();
+    game.getPlayers().forEach(function(player) {
+      
+    });
   });
 
   it("should allow more than two players", function() {
