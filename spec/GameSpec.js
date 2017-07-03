@@ -9,7 +9,7 @@ describe("Game", function() {
     game = new Game(numPlayers);
   });
 
-  it("a deck should be evenly split among players", function() {
+  it("deck should be evenly split among players", function() {
     var numCards;
 
     game.getPlayers().forEach(function(player) {
