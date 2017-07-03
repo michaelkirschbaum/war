@@ -7,8 +7,8 @@ describe("Deck", function() {
     deck = new Deck();
   });
 
-  it("should be a standard deck", function() {
-    expect(deck.getSize()).toEqual(64);
+  it("should be a French deck", function() {
+    expect(deck.getSize()).toEqual(52);
   });
 
   it("should be able to return a card", function() {
@@ -26,7 +26,7 @@ describe("Deck", function() {
         deck.draw();
       }).toThrowError("the deck is empty");
 
-      expect(deck.getSize().toEqual(64));
+      expect(deck.getSize().not.toEqual(0));
     });
   });
 
