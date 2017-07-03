@@ -3,7 +3,7 @@ describe("Game", function() {
   var Deck = require('../lib/Deck');
   var game;
 
-  beforeAll(function() {
+  beforeEach(function() {
     var numPlayers = 2;
 
     game = new Game(numPlayers);
@@ -18,10 +18,16 @@ describe("Game", function() {
 
     var deck = new Deck();
 
+    expect(game.getPlayers().length).toEqual(numPlayers);
+
     expect(numCards).toEqual(deck.getSize());
   });
 
-  it("should allow more than two players", function() {
-    expect(true).toEqual(false);
+  describe("when there are more than two players", function() {
+    beforeEach(function() {
+      var numPlayers = 3;
+
+      more_than_two_game = new Game(numPlayers);
+    });
   });
 });
