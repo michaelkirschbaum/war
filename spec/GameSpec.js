@@ -9,7 +9,7 @@ describe("Game", function() {
     game = new Game(numPlayers);
   });
 
-  it("deck should be evenly split among players", function() {
+  it("deck should be split evenly among players", function() {
     var numCards;
 
     game.getPlayers().forEach(function(player) {
@@ -21,13 +21,15 @@ describe("Game", function() {
     expect(game.getPlayers().length).toEqual(numPlayers);
 
     expect(numCards).toEqual(deck.getSize());
-  });
 
+    expect(game.getDeck().getSize()).toEqual(0);
+  });
+/*
   describe("when there are more than two players", function() {
     beforeEach(function() {
       var numPlayers = 3;
 
       more_than_two_game = new Game(numPlayers);
     });
-  });
+  }); */
 });
