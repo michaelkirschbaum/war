@@ -11,3 +11,11 @@ TODO:
 * Executable demo
 * Provide all source files for review
 * 2 or more players
+
+## test
+
+npm test
+
+## run
+
+npm start
