@@ -31,6 +31,8 @@ describe("Deck", function() {
   });
 
   it("should be able to shuffle", function() {
+    deck.shuffle();
+
     expect(true).toEqual(false);
   });
 });
