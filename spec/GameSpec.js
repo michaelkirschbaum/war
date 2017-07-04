@@ -5,7 +5,6 @@ describe("Game", function() {
 
   beforeEach(function() {
     var numPlayers = 2;
-
     game = new Game(numPlayers);
   });
 
