@@ -11,5 +11,7 @@ beforeEach(function () {
         }
       };
     }
+
+    instanceOf: function() {}
   });
 });
