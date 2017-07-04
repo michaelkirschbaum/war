@@ -9,6 +9,7 @@ describe("Player", function() {
     var deck = new Deck();
     var card;
 
+    // allocate cards to player
     for (var i = 0; i < deck.getSize() / 2; i++) {
       card = deck.draw();
       player.add(card);
@@ -64,32 +65,34 @@ describe("Player", function() {
 
   describe("when player wins a round", function() {
     var player2;
-    var cards;
+    var drawn_cards;
+    var player_cards
 
     beforeEach(function() {
       player2 = new Player();
 
+      // allocate cards to player
       for (var i = 0; i < deck.getSize() / 2; i++) {
         card = deck.draw();
         player2.add(card);
       }
 
-      var drawn_cards = [];
-      var player_cards = [];
+      drawn_cards = [];
+      player_cards = [];
     });
 
     it("should be able to add cards to hand", function() {
-      cards.push(player.play());
-      cards.push(player.play());
-      cards.push(player.play());
-      cards.push(player.play());
+      drawn_cards.push(player.play());
+      drawn_cards.push(player.play());
+      drawn_cards.push(player.play());
+      drawn_cards.push(player.play());
 
-      player2.add(cards);
+      player2.add(drawn_cards);
 
       for (var i = 0; i < player2.numCards(); i++)
         player_cards.push(player2.play());
 
-      expect(JSON.stringify(player_cards.slice(player_cards.length - cards.length, player_cards.length))).toEqual(JSON.stringify(cards));
+      expect(JSON.stringify(player_cards.slice(player_cards.length - drawn_cards.length, player_cards.length))).toEqual(JSON.stringify(drawn_cards));
     });
   });
 });
