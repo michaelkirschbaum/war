@@ -19,5 +19,8 @@
   "homepage": "https://github.com/michaelkirschbaum/war#readme",
   "devDependencies": {
     "jasmine": "^2.6.0"
+  },
+  "dependencies": {
+    "shuffle-array": "^1.0.1"
   }
 }
