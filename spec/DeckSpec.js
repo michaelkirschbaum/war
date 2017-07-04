@@ -21,13 +21,22 @@ describe("Deck", function() {
         deck.draw();
     });
 
-    it("should throw an exception when drawing and create new deck", function() {
+    it("should throw an exception when drawing", function() {
       expect(function() {
         deck.draw();
       }).toThrowError("the deck is empty");
 
-      expect(deck.getSize().not.toEqual(0));
+    it("should be able to create new deck", function() {
+      deck.new();
+
+      expect(deck.getSize().toEqual(52));
     });
+  });
+
+  it("should not be able to create new deck until all cards have been dealt", function() {
+    expect(function() {
+      deck.new();
+    }).toThrowError("there are still cards left in the deck");
   });
 
   it("should be able to shuffle", function() {
