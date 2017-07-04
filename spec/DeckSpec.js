@@ -41,10 +41,11 @@ describe("Deck", function() {
   });
 
   it("should be able to shuffle", function() {
-    var deck_temp = deck;
+    var cards = JSON.stringify(deck.getCards());
+    var cards_string = JSON.stringify(cards);
 
     deck.shuffle();
 
-    expect();
+    expect(cards_string).not.toEqual(JSON.stringify(deck.getCards()));
   });
 });
