@@ -69,6 +69,8 @@ describe("Player", function() {
       cards.push(player2.play());
       cards.push(player2.play());
 
+      player.add(cards);
+
       // expect();
     });
   });

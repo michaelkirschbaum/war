@@ -25,6 +25,7 @@ describe("Deck", function() {
       expect(function() {
         deck.draw();
       }).toThrowError("the deck is empty");
+    });
 
     it("should be able to create new deck", function() {
       deck.new();
@@ -40,6 +41,8 @@ describe("Deck", function() {
   });
 
   it("should be able to shuffle", function() {
+    var deck_temp = deck;
+
     deck.shuffle();
 
     // expect();
