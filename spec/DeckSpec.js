@@ -45,6 +45,6 @@ describe("Deck", function() {
 
     deck.shuffle();
 
-    // expect();
+    expect();
   });
 });

@@ -59,8 +59,9 @@ describe("Player", function() {
     var cards;
 
     beforeEach(function() {
-      player2 = new Player(26);
-      cards = [];
+      var player2 = new Player(26);
+      var drawn_cards = [];
+      var player_cards = [];
     });
 
     it("should be able to add cards to hand", function() {
@@ -71,7 +72,10 @@ describe("Player", function() {
 
       player.add(cards);
 
-      // expect();
+      for (var i = 0; i < player.numCards(); i++)
+        player_cards.push(player.play());
+
+      expect(JSON.stringify(player_cards.slice(player_cards.length - cards.length, player_cards.length))).toEqual(JSON.stringify(cards));
     });
   });
 });

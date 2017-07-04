@@ -2,4 +2,6 @@
 
 var Game = require('lib/Game');
 
-var game = new Game(2);
+var numPlayers = 2;
+
+var game = new Game(numPlayers);
