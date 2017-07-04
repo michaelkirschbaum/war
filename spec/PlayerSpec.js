@@ -17,7 +17,7 @@ describe("Player", function() {
   });
 
   it("should be able to play a card", function() {
-    expect(player.play() instanceof Card).toEqual("Card");
+    expect(player.play()).instanceOf(Card);
   });
 
   it("should be able to play war", function() {
@@ -27,8 +27,8 @@ describe("Player", function() {
 
     var [card1, card2] = cards;
 
-    expect(card1 instanceof Card).toBeTruthy();
-    expect(card2 instanceof Card).toBeTruthy();
+    expect(card1).instanceOf(Card);
+    expect(card2).instanceOf(Card);
   });
 
   describe("when player is out of cards", function() {
