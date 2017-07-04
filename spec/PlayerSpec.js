@@ -1,10 +1,18 @@
 describe("Player", function() {
   var Player = require('../lib/Player');
   var Card = require('../lib/Card');
+  var Deck = require('../lib/Deck');
   var player;
 
   beforeEach(function() {
-    var player = new Player(26);
+    var player = new Player();
+    var deck = new Deck();
+    var card;
+
+    for (var i = 0; i < deck.getSize() / 2; i++) {
+      card = deck.draw();
+      player.add(card);
+    }
   });
 
   it("should be able to play a card", function() {
@@ -59,21 +67,27 @@ describe("Player", function() {
     var cards;
 
     beforeEach(function() {
-      var player2 = new Player(26);
+      player2 = new Player();
+
+      for (var i = 0; i < deck.getSize() / 2; i++) {
+        card = deck.draw();
+        player2.add(card);
+      }
+
       var drawn_cards = [];
       var player_cards = [];
     });
 
     it("should be able to add cards to hand", function() {
-      cards.push(player2.play());
-      cards.push(player2.play());
-      cards.push(player2.play());
-      cards.push(player2.play());
+      cards.push(player.play());
+      cards.push(player.play());
+      cards.push(player.play());
+      cards.push(player.play());
 
-      player.add(cards);
+      player2.add(cards);
 
-      for (var i = 0; i < player.numCards(); i++)
-        player_cards.push(player.play());
+      for (var i = 0; i < player2.numCards(); i++)
+        player_cards.push(player2.play());
 
       expect(JSON.stringify(player_cards.slice(player_cards.length - cards.length, player_cards.length))).toEqual(JSON.stringify(cards));
     });

@@ -24,12 +24,8 @@ describe("Game", function() {
 
     expect(game.getDeck().getSize()).toEqual(0);
   });
-/*
-  describe("when there are more than two players", function() {
-    beforeEach(function() {
-      var numPlayers = 3;
 
-      more_than_two_game = new Game(numPlayers);
-    });
-  }); */
+  describe("when there are more than two players", function() {
+    beforeEach(function() {});
+  });
 });
