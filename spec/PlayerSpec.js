@@ -2,10 +2,9 @@ describe("Player", function() {
   var Player = require('../lib/Player');
   var Card = require('../lib/Card');
   var player;
-  var player2;
 
   beforeEach(function() {
-    var player = new Player(52);
+    var player = new Player(26);
   });
 
   it("should be able to play a card", function() {
@@ -56,8 +55,21 @@ describe("Player", function() {
   });
 
   describe("when player wins a round", function() {
-    beforeEach(function() {});
+    var player2;
+    var cards;
 
-    it("should be able to add cards to hand", function() {});
+    beforeEach(function() {
+      player2 = new Player(26);
+      cards = [];
+    });
+
+    it("should be able to add cards to hand", function() {
+      cards.push(player2.play());
+      cards.push(player2.play());
+      cards.push(player2.play());
+      cards.push(player2.play());
+
+      // expect();
+    });
   });
 });
