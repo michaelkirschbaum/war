@@ -12,19 +12,20 @@ describe("Game", function() {
     var numCards;
 
     game.getPlayers().forEach(function(player) {
-      numCards += player.getCards().length;
+      numCards += player.numCards();
     });
 
-    var deck = new Deck();
-
-    expect(game.getPlayers().length).toEqual(numPlayers);
-
-    expect(numCards).toEqual(deck.getSize());
-
-    expect(game.getDeck().getSize()).toEqual(0);
+    expect(numCards).toEqual((new Deck()).getSize());
   });
 
   describe("when there are more than two players", function() {
-    beforeEach(function() {});
+    beforeEach(function() {
+      numPlayers = 3;
+      game = new Game(numPlayers);
+    });
+
+    it("should allocate cards to each player", function() {
+      expect(game.numPlayers().toEqual(numPlayers);
+    });
   });
 });
