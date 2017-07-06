@@ -25,7 +25,7 @@ describe("Game", function() {
     });
 
     it("should allocate cards to each player", function() {
-      expect(game.numPlayers().toEqual(numPlayers);
+      expect(game.numPlayers().toEqual(numPlayers));
     });
   });
 });
