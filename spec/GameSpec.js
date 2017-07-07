@@ -30,11 +30,22 @@ describe("Game", function() {
     });
   });
 
-  it("should be able to play a round", function() {});
+  it("should be able to play a round", function() {
+    var winner = game.play();
+  });
 
-  describe("when a player runs out of cards", function() {});
+  it("should not be able to play a round while in war", function() {});
 
-  describe("when all but one player runs out of cards", function() {});
+  it("should be able to play war", function() {});
 
-  describe("when all players run out of cards", function() {});
+  it("should not be able to war while not in match", function() {});
+
+  describe("when a player has no cards left", function() {});
+
+  describe("when all but one player has no cards left", function() {
+    it("should be able to start a new game", function() {});
+  });
+
+  describe("when all players have no cards left", function() {});
 });
+j
