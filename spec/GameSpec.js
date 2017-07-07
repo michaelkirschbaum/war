@@ -30,7 +30,11 @@ describe("Game", function() {
     });
   });
 
-  it("should be able to play a round", function() {
-    
-  });
+  it("should be able to play a round", function() {});
+
+  describe("when a player runs out of cards", function() {});
+
+  describe("when all but one player runs out of cards", function() {});
+
+  describe("when all players run out of cards", function() {});
 });
