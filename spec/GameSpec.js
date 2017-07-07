@@ -15,6 +15,7 @@ describe("Game", function() {
       numCards += player.numCards();
     });
 
+    expect(game.getPlayers()[0].numCards()).toEqual(game.getPlayers()[1].numCards());
     expect(numCards).toEqual((new Deck()).getSize());
   });
 
@@ -27,5 +28,9 @@ describe("Game", function() {
     it("should allocate cards to each player", function() {
       expect(game.numPlayers().toEqual(numPlayers));
     });
+  });
+
+  it("should be able to play a round", function() {
+    
   });
 });
