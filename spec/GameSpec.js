@@ -40,6 +40,10 @@ describe("Game", function() {
 
   it("should not be able to war while not in match", function() {});
 
+  describe("when not in a war", function() {});
+
+  describe("when in a war", function() {});
+/*
   describe("when a player has no cards left", function() {});
 
   describe("when all but one player has no cards left", function() {
@@ -47,5 +51,5 @@ describe("Game", function() {
   });
 
   describe("when all players have no cards left", function() {});
+*/
 });
-j
