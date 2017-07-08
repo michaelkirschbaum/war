@@ -30,14 +30,22 @@ describe("Game", function() {
     });
   });
 
+  describe("when a player has no cards left", function() {
+    it("", function() {});
+  });
+
   describe("when not in a war", function() {
+    beforeEach(function() {});
+
     it("should be able to play a round", function() {
       var winner = game.play();
     });
 
     it("should not be able to war", function() {});
 
-    describe("when a player has no cards left", function() {});
+    describe("when a player has no cards left", function() {
+      it("", function() {});
+    });
 
     describe("when all but one player has no cards left", function() {
       it("should return the winner", function() {});
@@ -53,8 +61,18 @@ describe("Game", function() {
   });
 
   describe("when in a war", function() {
+    beforeEach(function() {});
+
     it("should not be able to play a round", function() {});
 
     it("should be able to play war", function() {});
+
+    describe("when all but one player has no cards left", function() {
+      it("", function() {});
+    });
+
+    describe("when all players have no cards left", function() {
+      it("", function() {});
+    })
   });
 });
