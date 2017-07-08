@@ -30,16 +30,6 @@ describe("Game", function() {
     });
   });
 
-  describe("when a player has no cards left", function() {
-    beforeEach(function() {
-
-    });
-
-    it("they should be removed from the game", function() {
-
-    });
-  });
-
   describe("when not in a war", function() {
     beforeEach(function() {
 
@@ -51,6 +41,12 @@ describe("Game", function() {
 
     it("should not be able to war", function() {
 
+    });
+
+    describe("when a player has no cards left", function() {
+      it("should be removed from the game", function() {
+
+      });
     });
 
     describe("when all but one player has no cards left", function() {
@@ -85,6 +81,16 @@ describe("Game", function() {
 
     it("should be able to play war", function() {
 
+    });
+
+    describe("when a player has one card left", function() {
+      it("should be removed from the game", function() {
+
+      });
+
+      it("should be removed from the game with no cards left", function() {
+
+      });
     });
 
     describe("when all but one player has no cards left", function() {
