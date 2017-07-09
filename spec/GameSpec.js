@@ -159,7 +159,9 @@ describe("Game", function() {
   });
 
   describe("when in a war", function() {
-    beforeEach(function() {});
+    beforeEach(function() {
+
+    });
 
     it("should not be able to play a round", function() {
 
@@ -170,6 +172,10 @@ describe("Game", function() {
     });
 
     describe("when a player has one card left", function() {
+      beforeEach(function() {
+
+      });
+
       it("should be removed from the game", function() {
 
       });
@@ -180,12 +186,20 @@ describe("Game", function() {
     });
 
     describe("when all but one player has no cards left", function() {
+      beforeEach(function() {
+
+      });
+
       it("the remaining player should win the war", function() {
 
       });
     });
 
     describe("when all players have no cards left", function() {
+      beforeEach(function() {
+
+      });
+
       it("the cards should go to the players with the next highest card", function() {
 
       });
