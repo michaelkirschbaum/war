@@ -134,15 +134,26 @@ describe("Game", function() {
 
     describe("when all players have no cards left", function() {
       beforeEach(function() {
-
+        game.getPlayers().forEach(function(player) {
+          for (var i = 0; i < player.numCards(); i++)
+            player.play();
+        });
       });
 
       it("should not return", function() {
-
+        expect(function() {
+          game.play();
+        }).toThrowError("all players have run out of cards resulting in stalemate");
       });
 
       it("should be able to start a new game", function() {
+        var numPlayers = game.getPlayers().length;
 
+        game.play();
+        expect(game.getPlayers().length).toEqual(0);
+
+        game.new();
+        expect(game.getPlayers().length).toEqual(numPlayers);
       });
     });
   });
