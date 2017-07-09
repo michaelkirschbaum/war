@@ -49,6 +49,10 @@ describe("Game", function() {
   describe("when not in a war", function() {
     it("should be able to play a round", function() {
       var winner = null;
+      var loser = null;
+      var numCards = game.getPlayers()[0].numCards();
+
+      expect(numCards).toEqual(game.getPlayers()[1].numCards());
 
       try {
         winner = game.play();
@@ -62,16 +66,28 @@ describe("Game", function() {
         }
       }
 
-      expect();
+      // identify loser
+      game.getPlayers().forEach(function(player) {
+        if (player != winner)
+          loser = player;
+      });
+
+      // cards are allocated after play
+      if (winner) {
+        expect(winner.numCards()).toBeGreaterThan(numCards);
+        expect(winner.numCards() - numCards).toEqual(numCards - loser.numCards());
+      }
     });
 
     it("should not be able to play war", function() {
-
+      expect(function() {
+        game.war();
+      }).toThrowError("players are not currently in a war");
     });
 
     describe("when a player has no cards left", function() {
       it("should be removed from the game", function() {
-
+        
       });
     });
 
