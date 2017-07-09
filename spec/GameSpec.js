@@ -103,16 +103,40 @@ describe("Game", function() {
     });
 
     describe("when all but one player has no cards left", function() {
-      it("should return the winner", function() {
+      var players;
+      var winner;
 
+      beforeEach(function() {
+        players = game.getPlayers();
+        winner = players[0];
+
+        players.slice(1, players.length).forEach(function(player) {
+          for (var i = 0; i < player.numCards(); i++) {
+            player.play();
+          }
+        });
+      });
+
+      it("should return the winner", function() {
+        expect(game.play()).toEqual(winner);
       });
 
       it("should be able to start a new game", function() {
+        var numPlayers = players.length;
 
+        game.play();
+        expect(game.getPlayers().length).toEqual(1);
+
+        game.new();
+        expect(game.getPlayers().length).toEqual(numPlayers);
       });
     });
 
     describe("when all players have no cards left", function() {
+      beforeEach(function() {
+
+      });
+
       it("should not return", function() {
 
       });
@@ -126,22 +150,34 @@ describe("Game", function() {
   describe("when in a war", function() {
     beforeEach(function() {});
 
-    it("should not be able to play a round", function() {});
+    it("should not be able to play a round", function() {
 
-    it("should be able to play war", function() {});
+    });
+
+    it("should be able to play war", function() {
+
+    });
 
     describe("when a player has one card left", function() {
-      it("should be removed from the game", function() {});
+      it("should be removed from the game", function() {
 
-      it("should be removed from the game with no cards left", function() {});
+      });
+
+      it("should be removed from the game with no cards left", function() {
+
+      });
     });
 
     describe("when all but one player has no cards left", function() {
-      it("the remaining player should win the war", function() {});
+      it("the remaining player should win the war", function() {
+
+      });
     });
 
     describe("when all players have no cards left", function() {
-      it("the cards should go to the players with the next highest card", function() {});
+      it("the cards should go to the players with the next highest card", function() {
+
+      });
     })
   });
 });
