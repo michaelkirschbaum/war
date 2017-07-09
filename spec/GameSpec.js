@@ -86,8 +86,19 @@ describe("Game", function() {
     });
 
     describe("when a player has no cards left", function() {
+      var player;
+
+      beforeEach(function() {
+        player = game.getPlayers()[0];
+
+        for (var i = 0; i < player.numCards(); i++)
+          player.play();
+      });
+
       it("should be removed from the game", function() {
-        
+        game.play();
+
+        expect(game.getPlayers()).not.toContain(player);
       });
     });
 
