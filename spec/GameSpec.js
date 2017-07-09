@@ -1,6 +1,7 @@
 describe("Game", function() {
   var Game = require('../lib/Game');
   var Deck = require('../lib/Deck');
+  var Card = require('../lib/Card')
   var game;
 
   beforeEach(function() {
@@ -30,16 +31,41 @@ describe("Game", function() {
     });
   });
 
+  it("should throw an exception when play requires war", function() {
+    var [player1, player2] = game.getPlayers();
+    player1.add([new Card("Ace", "Spades")]);
+    player2.add([new Card("Ace", "Spades")]);
+
+    for (var i = 0; i < player1.numCards() - 1; i++) {
+      player1.play();
+      player2.play();
+    }
+
+    expect(function() {
+      game.play();
+    }).toThrowError("players must war");
+  });
+
   describe("when not in a war", function() {
-    beforeEach(function() {
-
-    });
-
     it("should be able to play a round", function() {
-      var winner = game.play();
+      var winner = null;
+
+      try {
+        winner = game.play();
+      } catch (e) {
+        while (winner == null) {
+          try {
+            winner = game.war();
+          } catch (e) {
+            break;
+          }
+        }
+      }
+
+      expect();
     });
 
-    it("should not be able to war", function() {
+    it("should not be able to play war", function() {
 
     });
 
@@ -60,7 +86,7 @@ describe("Game", function() {
     });
 
     describe("when all players have no cards left", function() {
-      it("should not return anything", function() {
+      it("should not return", function() {
 
       });
 
@@ -71,38 +97,24 @@ describe("Game", function() {
   });
 
   describe("when in a war", function() {
-    beforeEach(function() {
+    beforeEach(function() {});
 
-    });
+    it("should not be able to play a round", function() {});
 
-    it("should not be able to play a round", function() {
-
-    });
-
-    it("should be able to play war", function() {
-
-    });
+    it("should be able to play war", function() {});
 
     describe("when a player has one card left", function() {
-      it("should be removed from the game", function() {
+      it("should be removed from the game", function() {});
 
-      });
-
-      it("should be removed from the game with no cards left", function() {
-
-      });
+      it("should be removed from the game with no cards left", function() {});
     });
 
     describe("when all but one player has no cards left", function() {
-      it("the remaining player should win the war", function() {
-
-      });
+      it("the remaining player should win the war", function() {});
     });
 
     describe("when all players have no cards left", function() {
-      it("the cards should go to the players with the next highest card", function() {
-
-      });
+      it("the cards should go to the players with the next highest card", function() {});
     })
   });
 });
