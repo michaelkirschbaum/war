@@ -1,7 +1,9 @@
 describe("Game", function() {
   var Game = require('../lib/Game');
+  var numPlayers;
 
   beforeEach(function() {
-    var game = new Game();
+    numPlayers = 3
+    var game = new Game(numPlayers);
   });
 });
