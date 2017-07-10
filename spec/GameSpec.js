@@ -5,8 +5,12 @@ describe("Game", function() {
   var game;
 
   beforeEach(function() {
-    var numPlayers = 2;
+    var numPlayers = 3;
     game = new Game(numPlayers);
+  });
+
+  it("should not allow less than or more than ? players", function() {
+
   });
 
   it("deck should be split evenly among players", function() {
@@ -14,21 +18,10 @@ describe("Game", function() {
 
     game.getPlayers().forEach(function(player) {
       numCards += player.numCards();
+      expect(player.numCards()).withinRange(game.getPlayers()[0].numCards(), 1);
     });
 
-    expect(game.getPlayers()[0].numCards()).toEqual(game.getPlayers()[1].numCards());
     expect(numCards).toEqual((new Deck()).getSize());
-  });
-
-  describe("when there are more than two players", function() {
-    beforeEach(function() {
-      numPlayers = 3;
-      game = new Game(numPlayers);
-    });
-
-    it("should allocate cards to each player", function() {
-      expect(game.numPlayers().toEqual(numPlayers));
-    });
   });
 
   it("should throw an exception when play requires war", function() {
@@ -38,6 +31,9 @@ describe("Game", function() {
 
     for (var i = 0; i < player1.numCards() - 1; i++) {
       player1.play();
+    }
+
+    for (var j = 0; j < player2.numCards() - 1; j++) {
       player2.play();
     }
 
@@ -48,112 +44,49 @@ describe("Game", function() {
 
   describe("when not in a war", function() {
     it("should be able to play a round", function() {
-      var winner = null;
-      var loser = null;
-      var numCards = game.getPlayers()[0].numCards();
 
-      expect(numCards).toEqual(game.getPlayers()[1].numCards());
-
-      try {
-        winner = game.play();
-      } catch (e) {
-        while (winner == null) {
-          try {
-            winner = game.war();
-          } catch (e) {
-            break;
-          }
-        }
-      }
-
-      // identify loser
-      game.getPlayers().forEach(function(player) {
-        if (player != winner)
-          loser = player;
-      });
-
-      // cards are allocated after play
-      if (winner) {
-        expect(winner.numCards()).toBeGreaterThan(numCards);
-        expect(winner.numCards() - numCards).toEqual(numCards - loser.numCards());
-      }
     });
 
     it("should not be able to play war", function() {
-      expect(function() {
-        game.war();
-      }).toThrowError("players are not currently in a war");
+
     });
 
     describe("when a player has no cards left", function() {
-      var player;
-
       beforeEach(function() {
-        player = game.getPlayers()[0];
 
-        for (var i = 0; i < player.numCards(); i++)
-          player.play();
       });
 
       it("should be removed from the game", function() {
-        game.play();
 
-        expect(game.getPlayers()).not.toContain(player);
       });
     });
 
     describe("when all but one player has no cards left", function() {
-      var players;
-      var winner;
-
       beforeEach(function() {
-        players = game.getPlayers();
-        winner = players[0];
 
-        players.slice(1, players.length).forEach(function(player) {
-          for (var i = 0; i < player.numCards(); i++) {
-            player.play();
-          }
-        });
       });
 
       it("should return the winner", function() {
-        expect(game.play()).toEqual(winner);
+
       });
 
       it("should be able to start a new game", function() {
-        var numPlayers = players.length;
 
-        game.play();
-        expect(game.getPlayers().length).toEqual(1);
-
-        game.new();
-        expect(game.getPlayers().length).toEqual(numPlayers);
       });
     });
 
     describe("when all players have no cards left", function() {
       beforeEach(function() {
-        game.getPlayers().forEach(function(player) {
-          for (var i = 0; i < player.numCards(); i++)
-            player.play();
+
         });
       });
 
       it("should not return", function() {
-        expect(function() {
-          game.play();
-        }).toThrowError("all players have run out of cards resulting in stalemate");
+
       });
 
       it("should be able to start a new game", function() {
-        var numPlayers = game.getPlayers().length;
 
-        game.play();
-        expect(game.getPlayers().length).toEqual(0);
-
-        game.new();
-        expect(game.getPlayers().length).toEqual(numPlayers);
       });
     });
   });
