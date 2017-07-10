@@ -46,7 +46,17 @@ describe("Game", function() {
         game = new Game(numPlayers);
       }
     }
+  });
 
-    // expect();
+  describe("when in a war", function() {
+    beforeEach(function() {
+      while(true) {
+        try {
+          game.play();
+        } catch (e) {
+          break;
+        }
+      }
+    });
   });
 });
