@@ -8,16 +8,6 @@ beforeEach(function () {
           };
         }
       };
-    },
-
-    withinRange: function() {
-      return {
-        compare: function (actual, expected, range) {
-          return {
-            pass: expected >= actual - range && expected <= actual + range
-          };
-        }
-      };
     }
   });
 });
